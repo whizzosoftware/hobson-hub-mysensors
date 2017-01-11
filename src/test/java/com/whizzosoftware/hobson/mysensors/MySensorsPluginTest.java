@@ -37,8 +37,8 @@ public class MySensorsPluginTest {
         plugin.setDeviceManager(dm);
         plugin.setPluginManager(pm);
         plugin.setActionManager(am);
-        plugin.publishDeviceProxy(new MySensorsSensor(plugin, "1.1", "name", "1.0")).sync();
-        plugin.publishDeviceProxy(new MySensorsSensor(plugin, "254.1", "name", "1.0")).sync();
+        plugin.onChannelData(new MySensorsMessage(1, 1, 0, true, 32, "Water Leak"));
+        plugin.onChannelData(new MySensorsMessage(254, 1, 0, true, 32, "Water Leak"));
         plugin.onStartup(null);
         assertEquals("2", plugin.getNextNodeId());
     }
