@@ -11,8 +11,6 @@ package com.whizzosoftware.hobson.mysensors;
 
 import com.whizzosoftware.hobson.api.device.HobsonDeviceDescriptor;
 import com.whizzosoftware.hobson.api.device.proxy.HobsonDeviceProxy;
-import com.whizzosoftware.hobson.api.event.EventHandler;
-import com.whizzosoftware.hobson.api.event.plugin.PluginConfigurationUpdateEvent;
 import com.whizzosoftware.hobson.api.plugin.channel.AbstractChannelObjectPlugin;
 import com.whizzosoftware.hobson.api.plugin.channel.ChannelObjectDriverInboundHandler;
 import com.whizzosoftware.hobson.api.property.PropertyContainer;
@@ -100,11 +98,11 @@ public class MySensorsPlugin extends AbstractChannelObjectPlugin implements Mess
         };
     }
 
-    @EventHandler
-    public void onPluginConfigurationUpdate(PluginConfigurationUpdateEvent event) {
-        super.onPluginConfigurationUpdate(event);
-        if (event.getConfiguration().hasPropertyValue(PROP_SENSOR_SYSTEM)) {
-            sensorSystem = event.getConfiguration().getStringPropertyValue(PROP_SENSOR_SYSTEM);
+    @Override
+    public void onPluginConfigurationUpdate(PropertyContainer config) {
+        super.onPluginConfigurationUpdate(config);
+        if (config.hasPropertyValue(PROP_SENSOR_SYSTEM)) {
+            sensorSystem = config.getStringPropertyValue(PROP_SENSOR_SYSTEM);
         }
     }
 
