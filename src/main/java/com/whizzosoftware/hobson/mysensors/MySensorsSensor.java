@@ -13,7 +13,6 @@ import com.whizzosoftware.hobson.api.device.DeviceType;
 import com.whizzosoftware.hobson.api.device.HobsonDeviceDescriptor;
 import com.whizzosoftware.hobson.api.device.proxy.AbstractHobsonDeviceProxy;
 import com.whizzosoftware.hobson.api.plugin.HobsonPlugin;
-import com.whizzosoftware.hobson.api.property.PropertyContainer;
 import com.whizzosoftware.hobson.api.property.TypedProperty;
 import com.whizzosoftware.hobson.api.variable.*;
 import com.whizzosoftware.hobson.mysensors.protocol.ValueType;
@@ -70,7 +69,7 @@ public class MySensorsSensor extends AbstractHobsonDeviceProxy {
     }
 
     @Override
-    public void onDeviceConfigurationUpdate(PropertyContainer config) {
+    public void onDeviceConfigurationUpdate(Map<String,Object> config) {
 
     }
 
@@ -85,7 +84,7 @@ public class MySensorsSensor extends AbstractHobsonDeviceProxy {
     }
 
     @Override
-    public void onStartup(String name, PropertyContainer config) {
+    public void onStartup(String name, Map<String,Object> config) {
 
     }
 
